@@ -8,6 +8,8 @@ use Tqdev\PhpCrudApi\Api;
 use Tqdev\PhpCrudApi\Config;
 
 use App\Http\Controllers\API\CentroController;
+use App\Http\Controllers\API\GrupoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('centros', CentroController::class);
+Route::apiResource('grupos',GrupoController::class);
 Route::get('centrosAPIRM', [CentroController::class, 'indexAPIRM']);
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
