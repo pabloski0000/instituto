@@ -8,7 +8,7 @@ use Tqdev\PhpCrudApi\Api;
 use Tqdev\PhpCrudApi\Config;
 
 use App\Http\Controllers\API\CentroController;
-
+use App\Http\Controllers\API\PeriodoslectivosController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,6 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('centros', CentroController::class);
+Route::apiResource('periodoslectivos', PeriodoslectivosController::class);
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
     $config = new Config([
