@@ -32,10 +32,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('centros', CentroController::class);
 Route::apiResource('anyosescolares', AnyoescolarController::class)->parameters(['anyosescolares' => 'anyoescolar']);
-
 Route::apiResource('materiasmatriculadas', MateriamatriculadaController::class)->parameters(['materiasmatriculadas' => 'materiamatriculada']);
-
-
 Route::apiResource('materias', MateriaController::class);
 Route::apiResource('grupos',GrupoController::class);
 Route::apiResource('matriculas', MatriculaController::class);
