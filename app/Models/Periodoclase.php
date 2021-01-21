@@ -9,6 +9,8 @@ class Periodoclase extends Model
 {
     use HasFactory;
 
+    protected $table = 'periodosclases';
+
     protected $fillable = [
         'periodo_id',
         'materiaimpartida_id',

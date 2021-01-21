@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePeriodoclasesTable extends Migration
+class CreatePeriodosclasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePeriodoclasesTable extends Migration
      */
     public function up()
     {
-        Schema::create('periodoclases', function (Blueprint $table) {
+        Schema::create('periodosclases', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('periodo_id')->nullable();
             $table->bigInteger('materiaimpartida_id')->nullable();
@@ -29,6 +29,6 @@ class CreatePeriodoclasesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('periodoclases');
+        Schema::dropIfExists('periodosclases');
     }
 }

@@ -14,10 +14,6 @@ class PeriodoclaseResource extends JsonResource
      */
     public function toArray($request)
     {
-        //return parent::toArray($request);
-
-        return [
-
-        ];
+        return parent::toArray($request);
     }
 }

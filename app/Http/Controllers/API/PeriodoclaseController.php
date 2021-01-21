@@ -27,10 +27,10 @@ class PeriodoclaseController extends Controller
      */
     public function store(Request $request)
     {
-        //$periodoclase = Periodoclase::create([json_decode($request->getContent(), true)]);
+        $periodoclase = Periodoclase::create(json_decode($request->getContent(), true));
 
-        $periodoclase = json_decode($request->getContent(), true);
-        $periodoclase = Periodoclase::create([$periodoclase]);
+        /*$periodoclase = json_decode($request->getContent(), true);
+        $periodoclase = Periodoclase::create([$periodoclase]);*/
 
         /*$periodoclaseCrear = new Periodoclase();
         $periodoclaseCrear->save();*/

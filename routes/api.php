@@ -29,7 +29,7 @@ Route::apiResource('centros', CentroController::class);
 
 Route::get('centrosAPIRM', [CentroController::class, 'indexAPIRM']);
 
-Route::apiResource('periodoclases', PeriodoclaseController::class);
+Route::apiResource('periodosclases', PeriodoclaseController::class)->parameters(['periodosclases' => 'periodoclase']);
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
     $config = new Config([
