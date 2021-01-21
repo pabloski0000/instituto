@@ -29,6 +29,6 @@ class CreateAnyosescolarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anyosescolars');
+        Schema::dropIfExists('anyosescolares');
     }
 }
