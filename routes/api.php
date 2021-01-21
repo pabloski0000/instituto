@@ -8,7 +8,10 @@ use Tqdev\PhpCrudApi\Api;
 use Tqdev\PhpCrudApi\Config;
 
 use App\Http\Controllers\API\CentroController;
+
 use App\Http\Controllers\API\MateriaController;
+use App\Http\Controllers\API\GrupoController;
+use App\Http\Controllers\API\MatriculaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +29,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('centros', CentroController::class);
+
 Route::apiResource('materias', MateriaController::class);
+Route::apiResource('grupos',GrupoController::class);
+Route::apiResource('matriculas', MatriculaController::class);
 
 
 Route::get('centrosAPIRM', [CentroController::class, 'indexAPIRM']);
