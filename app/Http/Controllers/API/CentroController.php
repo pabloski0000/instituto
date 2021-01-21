@@ -20,9 +20,15 @@ class CentroController extends Controller
         return CentroResource::collection(Centro::paginate());
     }
 
-    public function indexAPIRM(){
-        $response = Http::get('https://datosabiertos.regiondemurcia.es/catalogo/api/action//datastore_search?resource_id=52dd8435-46aa-495e-bd2b-703263e576e7&limit=5');
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexAPIRM()
+    {
+        $response = Http::get('https://datosabiertos.regiondemurcia.es/catalogo/api/action//datastore_search?resource_id=52dd8435-46aa-495e-bd2b-703263e576e7&limit=5&sort=DESCRIPCIONLOCALIDAD desc');
+      
         return response()->json(json_decode($response));
     }
 
@@ -36,11 +42,7 @@ class CentroController extends Controller
     {
         $centro = json_decode($request->getContent(), true);
 
-        $centroCrear = new Centro();
-        $centroCrear->nombre = $centro['nombre'];
-        $centroCrear->codigo = $centro['codigo'];
-        $centroCrear->verificado = $centro['verificado'];
-        $centroCrear->save();
+        $centro = Centro::create($centro);
 
         return new CentroResource($centro);
     }
@@ -69,7 +71,6 @@ class CentroController extends Controller
         $centro->update($centroData);
 
         return new CentroResource($centro);
-
     }
 
     /**

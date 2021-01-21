@@ -6,9 +6,15 @@ use Illuminate\Support\Facades\Route;
 use Psr\Http\Message\ServerRequestInterface;
 use Tqdev\PhpCrudApi\Api;
 use Tqdev\PhpCrudApi\Config;
-use App\Http\Controllers\API\CentroController;
+
 use App\Http\Controllers\API\PeriodoclaseController;
 use App\Models\Peridoclase;
+use App\Http\Controllers\API\CentroController;
+use App\Http\Controllers\API\MateriamatriculadaController;
+use App\Http\Controllers\API\NivelController;
+use App\Http\Controllers\API\MateriaController;
+use App\Http\Controllers\API\GrupoController;
+use App\Http\Controllers\API\MatriculaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,16 +33,26 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('centros', CentroController::class);
 
-Route::get('centrosAPIRM', [CentroController::class, 'indexAPIRM']);
-
 Route::apiResource('periodosclases', PeriodoclaseController::class)->parameters(['periodosclases' => 'periodoclase']);
+
+Route::apiResource('materiasmatriculadas', MateriamatriculadaController::class)->parameters(['materiasmatriculadas' => 'materiamatriculada']);
+
+
+Route::apiResource('materias', MateriaController::class);
+Route::apiResource('grupos',GrupoController::class);
+Route::apiResource('matriculas', MatriculaController::class);
+Route::apiResource('niveles', NivelController::class)->parameters(['niveles' => 'nivel']); /* Debido a como trabaja laravel, el parámetro que usamos cuando por ejemplo queremos sacar un nivel
+en concreto (Ej: http://instituto.test/api/niveles/1), nos lo coge como "nivele" (laravel interpreta que el singular de niveles es nivele). Si no le indicamos a laravel que el singular de
+niveles es nivel, nos hará la consulta pero nos devolverá todo a null */
+
+Route::get('centrosAPIRM', [CentroController::class, 'indexAPIRM']);
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
     $config = new Config([
+        'address' => env('DB_HOST'),
         'username' => env('DB_USERNAME'),
         'password' => env('DB_PASSWORD'),
         'database' => env('DB_DATABASE'),
-        'address' => env('DB_HOST'),
         'basePath' => '/api',
     ]);
     $api = new Api($config);

@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CentroResource extends JsonResource
+class NivelResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,6 +18,7 @@ class CentroResource extends JsonResource
         return [
             'id' => $this->id,
             'nombre' => $this->nombre,
+            'nivelsuperior' => $this->nivelsuperior,
         ];
     }
 }
