@@ -7,6 +7,8 @@ use Psr\Http\Message\ServerRequestInterface;
 use Tqdev\PhpCrudApi\Api;
 use Tqdev\PhpCrudApi\Config;
 use App\Http\Controllers\API\CentroController;
+use App\Http\Controllers\API\PeriodoclaseController;
+use App\Models\Peridoclase;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('centros', CentroController::class);
 
 Route::get('centrosAPIRM', [CentroController::class, 'indexAPIRM']);
+
+Route::apiResource('periodoclases', PeriodoclaseController::class);
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
     $config = new Config([

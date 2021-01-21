@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Http\Resources\PeriodoclaseResource;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Periodoclase;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         self::seedUsers();
+        self::seedPeriodoclase();
     }
 
     public static function seedUsers(){
@@ -25,5 +28,15 @@ class DatabaseSeeder extends Seeder
         $user->email = 'plajommj@hotmail.com';
         $user->password = '123456';
         $user->save();
+    }
+
+    public static function seedPeriodoclase(){
+        Periodoclase::truncate();
+        $periodoclase = new Periodoclase();
+        $periodoclase->id = '99';
+        $periodoclase->save();
+        $periodoclase = new Periodoclase();
+        $periodoclase->id = '98';
+        $periodoclase->save();
     }
 }
