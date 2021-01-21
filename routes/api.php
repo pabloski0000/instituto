@@ -8,6 +8,7 @@ use Tqdev\PhpCrudApi\Api;
 use Tqdev\PhpCrudApi\Config;
 
 use App\Http\Controllers\API\CentroController;
+use App\Http\Controllers\API\NivelController;
 
 use App\Http\Controllers\API\MateriaController;
 use App\Http\Controllers\API\GrupoController;
@@ -36,6 +37,9 @@ Route::apiResource('matriculas', MatriculaController::class);
 
 
 Route::get('centrosAPIRM', [CentroController::class, 'indexAPIRM']);
+
+Route::apiResource('niveles', NivelController::class)->parameters(['niveles' => 'nivel']); /* Debido a como trabaja laravel, el parámetro que usamos cuando por ejemplos queremos sacar un nivel en concreto (Ej: http://instituto.test/api/niveles/1), nos lo coge como "nivele" (laravel interpreta que el singular de niveles es nivele). Si no le indicamos a laravel que el 
+singular de niveles es nivel, nos hará la consulta pero nos devolverá todo a null */
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
     $config = new Config([
