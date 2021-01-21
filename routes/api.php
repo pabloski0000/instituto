@@ -7,6 +7,8 @@ use Psr\Http\Message\ServerRequestInterface;
 use Tqdev\PhpCrudApi\Api;
 use Tqdev\PhpCrudApi\Config;
 
+use App\Http\Controllers\API\PeriodoclaseController;
+use App\Models\Peridoclase;
 use App\Http\Controllers\API\CentroController;
 use App\Http\Controllers\API\AnyoescolarController;
 use App\Http\Controllers\API\MateriamatriculadaController;
@@ -32,6 +34,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('centros', CentroController::class);
 Route::apiResource('anyosescolares', AnyoescolarController::class)->parameters(['anyosescolares' => 'anyoescolar']);
+Route::apiResource('periodosclases', PeriodoclaseController::class)->parameters(['periodosclases' => 'periodoclase']);
 Route::apiResource('materiasmatriculadas', MateriamatriculadaController::class)->parameters(['materiasmatriculadas' => 'materiamatriculada']);
 Route::apiResource('materias', MateriaController::class);
 Route::apiResource('grupos',GrupoController::class);

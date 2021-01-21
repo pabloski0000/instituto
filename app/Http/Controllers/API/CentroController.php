@@ -28,6 +28,7 @@ class CentroController extends Controller
     public function indexAPIRM()
     {
         $response = Http::get('https://datosabiertos.regiondemurcia.es/catalogo/api/action//datastore_search?resource_id=52dd8435-46aa-495e-bd2b-703263e576e7&limit=5&sort=DESCRIPCIONLOCALIDAD desc');
+      
         return response()->json(json_decode($response));
     }
 
@@ -39,7 +40,6 @@ class CentroController extends Controller
      */
     public function store(Request $request)
     {
-
         $centro = json_decode($request->getContent(), true);
 
         $centro = Centro::create($centro);
