@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePeriodoslectivosTable extends Migration
+class CreatePeriodolectivosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreatePeriodoslectivosTable extends Migration
      */
     public function up()
     {
-        Schema::create('periodoslectivos', function (Blueprint $table) {
+        Schema::create('periodolectivos', function (Blueprint $table) {
             $table->id();
             $table->enum('dia', array('lunes', 'martes','miercoles', 'jueves', 'viernes'));
-            $table->timestamp('hora_inicio');
-            $table->timestamp('hora_fin');
+            $table->time('hora_inicio');
+            $table->time('hora_fin');
+            $table->integer('anyoescolar');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreatePeriodoslectivosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('periodoslectivos');
+        Schema::dropIfExists('periodolectivos');
     }
 }

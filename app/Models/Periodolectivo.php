@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Periodoslectivos extends Model
+class Periodolectivo extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'id',
+        
         'dia',
         'hora_inicio',
         'hora_fin',
