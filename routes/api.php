@@ -10,6 +10,8 @@ use Tqdev\PhpCrudApi\Config;
 use App\Http\Controllers\API\PeriodoclaseController;
 use App\Models\Peridoclase;
 use App\Http\Controllers\API\CentroController;
+
+use App\Http\Controllers\API\PeriodolectivoController;
 use App\Http\Controllers\API\AnyoescolarController;
 use App\Http\Controllers\API\MateriamatriculadaController;
 use App\Http\Controllers\API\NivelController;
@@ -33,6 +35,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('centros', CentroController::class);
+
+Route::apiResource('periodoslectivos', PeriodolectivoController::class)->parameters(['periodoslectivos' => 'periodolectivo']);
 Route::apiResource('anyosescolares', AnyoescolarController::class)->parameters(['anyosescolares' => 'anyoescolar']);
 Route::apiResource('periodosclases', PeriodoclaseController::class)->parameters(['periodosclases' => 'periodoclase']);
 Route::apiResource('materiasmatriculadas', MateriamatriculadaController::class)->parameters(['materiasmatriculadas' => 'materiamatriculada']);
@@ -44,6 +48,7 @@ en concreto (Ej: http://instituto.test/api/niveles/1), nos lo coge como "nivele"
 niveles es nivel, nos hará la consulta pero nos devolverá todo a null */
 
 Route::get('centrosAPIRM', [CentroController::class, 'indexAPIRM']);
+
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
     $config = new Config([
