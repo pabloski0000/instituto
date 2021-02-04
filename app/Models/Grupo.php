@@ -19,4 +19,8 @@ class Grupo extends Model
         'verificado',
         'creador'
     ];
+
+    public function nivelEstudios(){
+        return $this->belongsTo(Nivel::class, 'nivel');
+    }
 }
