@@ -18,6 +18,7 @@ class CentroResource extends JsonResource
         return [
             'id' => $this->id,
             'nombre' => $this->nombre,
+            'coordinador' => $this->coordinadorCentro,
         ];
     }
 }

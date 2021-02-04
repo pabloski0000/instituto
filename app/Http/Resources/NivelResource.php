@@ -19,6 +19,7 @@ class NivelResource extends JsonResource
             'id' => $this->id,
             'nombre' => $this->nombre,
             'nivelsuperior' => $this->nivelsuperior,
+            'grupos' => $this->grupos,
         ];
     }
 }

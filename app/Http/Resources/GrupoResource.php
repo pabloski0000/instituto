@@ -14,6 +14,15 @@ class GrupoResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        //return parent::toArray($request);
+        return [
+            'curso' => $this->curso,
+            'letra' => $this->letra,
+            'nombre' => $this->nombre,
+            'tutor' => $this->tutor,
+            'anyoescolar' => $this->anyoescolar,
+            'nivel' => $this->nivelEstudios,
+            'creador' => $this->creador,
+        ];
     }
 }
