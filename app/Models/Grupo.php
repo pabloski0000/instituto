@@ -23,4 +23,8 @@ class Grupo extends Model
     public function nivelEstudios(){
         return $this->belongsTo(Nivel::class, 'nivel');
     }
+
+    public function usuarios(){
+        return $this->belongsToMany(User::class, 'matriculas', 'grupo', 'alumno');
+    }
 }

@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Grupo;
+use App\Models\Matricula;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,7 +17,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        User::truncate();
+        User::factory(10)->create();
+
+        Grupo::truncate();
+        Grupo::factory(20)->create();
+
+        Matricula::truncate();
+        Matricula::factory(15)->create();
     }
 
 }

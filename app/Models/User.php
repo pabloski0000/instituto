@@ -52,4 +52,8 @@ class User extends Authenticatable
     public function centroCoordinado(){
         return $this->hasOne(Centro::class, 'coordinador');
     }
+
+    public function grupos(){
+        return $this->belongsToMany(Grupo::class, 'matriculas', 'alumno', 'grupo');
+    }
 }
