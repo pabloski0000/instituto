@@ -16,4 +16,8 @@ class Curso extends Model
         'showgrades',
         'startdate',
     ];
+
+    public function users(){
+        return $this->belongsToMany(User::class, 'curso_user', 'user_id', 'curso_id');
+    }
 }
