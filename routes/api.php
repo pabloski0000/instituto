@@ -20,6 +20,7 @@ use App\Http\Controllers\API\NivelController;
 use App\Http\Controllers\API\MateriaController;
 use App\Http\Controllers\API\GrupoController;
 use App\Http\Controllers\API\MatriculaController;
+use App\Http\Controllers\API\CursoController;
 
 use App\Http\Resources\CentroResource;
 
@@ -53,6 +54,8 @@ Route::post('/tokens/create', function (Request $request) {
         'access_token' => $user->createToken('token_name')->plainTextToken // token name you can choose for your self or leave blank if you like to
     ]);
 });
+
+Route::apiResource('cursos', CursoController::class);
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::get('/user', function (Request $request) {
